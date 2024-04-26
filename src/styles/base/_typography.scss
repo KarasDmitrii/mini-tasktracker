@@ -1,0 +1,59 @@
+.headline {
+  font-family: "Graphik LCG", sans-serif;
+  font-weight: 600;
+}
+
+.body {
+  font-family: "Graphik LCG", sans-serif;
+  font-weight: 400;
+
+  &_bold {
+    font-weight: 600;
+  }
+}
+
+.headline-2 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 56px;
+  text-align: center;
+}
+
+.headline-4 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: center;
+}
+
+.headline-5 {
+  //font-family: Graphik LCG;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+}
+
+headline-6 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+}
+
+.body-14 {
+  color: #5E646A;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+
+.body-16 {
+  //font-family: Graphik LCG;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: left;
+}

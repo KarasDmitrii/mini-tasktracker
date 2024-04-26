@@ -1,0 +1,65 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  outline: unset;
+  user-select: none;
+}
+
+body, ul, button, p, h1, h2, h3 {
+  margin: unset !important;
+}
+
+ul, button, input {
+  padding: unset;
+}
+
+button, input {
+  appearance: unset;
+  border: unset
+}
+
+ul {
+  list-style-type: none;
+  padding: unset;
+}
+
+button {
+  background-color: unset;
+  display: flex;
+  font-family: inherit;
+
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+}
+
+input {
+  outline: unset;
+  user-select: auto;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  &:disabled {
+    background-color: unset;
+    color: unset;
+  }
+}
+
+hr {
+  border: unset;
+  margin: unset;
+}

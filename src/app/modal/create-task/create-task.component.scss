@@ -1,0 +1,14 @@
+.createTask {
+  &__header {
+    color: #a2a0a2;
+    fill: #a2a0a2;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 30px;
+  }
+
+  &__closeIcon {
+    height: 16px;
+    width: 16px;
+  }
+}
