@@ -19,8 +19,20 @@ export class MtHeaderComponent {
 
   constructor(public dialog: Dialog) {}
 
+  // openDialog(): void {
+  //   this.dialog.open<string>(CreateTaskComponent, {panelClass: 'createTask',});
+  // }
+
   openDialog(): void {
-    this.dialog.open<string>(CreateTaskComponent, {panelClass: 'createTask',});
+    const dialogRef = this.dialog.open<string>(CreateTaskComponent, {
+      panelClass: 'createTask',
+      data: {},
+    });
+
+    dialogRef.closed.subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
   }
 
 }

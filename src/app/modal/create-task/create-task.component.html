@@ -1,12 +1,42 @@
-<div class="createTask__container">
-  <mat-dialog-actions align="start">
-    <button mat-button mat-dialog-close>Cancel</button>
-  </mat-dialog-actions>
+<div class="createTask__container d-grid h-100">
   <div class="createTask__header align-items-center justify-content-between d-flex w-100">
     <p class="mat-body-1">Новая задача</p>
-    <svg class="createTask__closeIcon" (click)="closeModal()" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-      <path d="M18.1,16L27,7.1c0.6-0.6,0.6-1.5,0-2.1s-1.5-0.6-2.1,0L16,13.9l-8.9-9C6.5,4.3,5.6,4.3,5,4.9S4.4,6.4,5,7l8.9,8.9L5,24.8c-0.6,0.6-0.6,1.5,0,2.1c0.3,0.3,0.7,0.4,1.1,0.4s0.8-0.1,1.1-0.4l8.9-8.9l8.9,8.9c0.3,0.3,0.7,0.4,1.1,0.4s0.8-0.1,1.1-0.4c0.6-0.6,0.6-1.5,0-2.1L18.1,16z"></path>
+    <svg class="createTask__closeIcon" (click)="dialogRef.close()" viewBox="0 0 32 32" aria-hidden="true"
+         focusable="false">
+      <path
+        d="M18.1,16L27,7.1c0.6-0.6,0.6-1.5,0-2.1s-1.5-0.6-2.1,0L16,13.9l-8.9-9C6.5,4.3,5.6,4.3,5,4.9S4.4,6.4,5,7l8.9,8.9L5,24.8c-0.6,0.6-0.6,1.5,0,2.1c0.3,0.3,0.7,0.4,1.1,0.4s0.8-0.1,1.1-0.4l8.9-8.9l8.9,8.9c0.3,0.3,0.7,0.4,1.1,0.4s0.8-0.1,1.1-0.4c0.6-0.6,0.6-1.5,0-2.1L18.1,16z"></path>
     </svg>
-
   </div>
+  <div class="createTask__content">
+    <form [formGroup]="newTaskForm" (ngSubmit)="onSubmit()" class="createTask__form d-grid">
+      <div class="createTask__input-wrapper d-grid">
+        <input class="createTask__input" formControlName="name" type='text' placeholder="Название задачи">
+        <div class="createTask__chips">
+          <mat-chip-grid #chipGrid aria-label="Enter fruits">
+            @for (person of performers; track person) {
+              <mat-chip-row (removed)="remove(person)" >
+                {{ person }}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            }
+            <input class="createTask__input" placeholder="Add perfomer"
+              [matChipInputFor]="chipGrid"
+              (matChipInputTokenEnd)="add($event)"/>
+          </mat-chip-grid>
+        </div>
+        <div class="createTask__datePicker d-flex">
+          <mat-date-range-input [rangePicker]="picker">
+            <input class="createTask__input" matStartDate formControlName="start" placeholder="Start date">
+            <input class="createTask__input" matEndDate formControlName="end" placeholder="End date">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </div>
+        <textarea class="createTask__input" matInput formControlName="description" placeholder="Описание задачи"></textarea>
+      </div>
+    </form>
+  </div>
+  <button class="createTask__button" (click)="newTaskForm.valid && onSubmit()" mat-flat-button color="primary" [disabled]="!newTaskForm.valid">Создать задачу</button>
 </div>
