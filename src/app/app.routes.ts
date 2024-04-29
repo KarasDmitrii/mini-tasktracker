@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
 import { MtHeaderComponent } from "./header/header.component";
+import { MtHomeResolver } from "./home/shared/home.resolver";
 
 export const routes: Routes = [{
   path: "",
@@ -8,5 +9,6 @@ export const routes: Routes = [{
   outlet: 'header'
 }, {
   path: "",
-  component: HomeComponent
+  component: HomeComponent,
+  resolve: { taskList: MtHomeResolver }
 }];

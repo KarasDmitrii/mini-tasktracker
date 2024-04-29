@@ -4,7 +4,8 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DEFAULT_DIALOG_CONFIG } from "@angular/cdk/dialog";
-import {MatDialogRef} from "@angular/material/dialog";
+import { MatDialogRef } from "@angular/material/dialog";
+import { MtFakeApiService } from "./fake-api/fake-api.service";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,5 +15,8 @@ export const appConfig: ApplicationConfig = {
     {
       provide: MatDialogRef,
       useValue: {}
-    }]
+    },
+    MtFakeApiService
+  ]
+
 };

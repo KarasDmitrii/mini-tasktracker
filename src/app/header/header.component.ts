@@ -4,6 +4,7 @@ import {MatButton} from "@angular/material/button";
 import {Dialog} from "@angular/cdk/dialog";
 import { CreateTaskComponent } from "../modal/create-task/create-task.component";
 import {MyDialogContainer} from "../modal/dialog/dialog-container";
+import {MtFakeApiService} from "../fake-api/fake-api.service";
 
 @Component({
   selector: 'mt-header',
@@ -17,11 +18,9 @@ import {MyDialogContainer} from "../modal/dialog/dialog-container";
 })
 export class MtHeaderComponent {
 
-  constructor(public dialog: Dialog) {}
-
-  // openDialog(): void {
-  //   this.dialog.open<string>(CreateTaskComponent, {panelClass: 'createTask',});
-  // }
+  constructor(
+    public dialog: Dialog,
+  ) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open<string>(CreateTaskComponent, {
@@ -31,7 +30,6 @@ export class MtHeaderComponent {
 
     dialogRef.closed.subscribe(result => {
       console.log('The dialog was closed');
-      // this.animal = result;
     });
   }
 
