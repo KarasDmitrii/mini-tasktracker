@@ -1,0 +1,40 @@
+<div class="taskPage__header grid align-items-center h-100">
+  <a></a>
+</div>
+<div class="container grid">
+  <div class="taskPage__container g-col-10 g-start-2">
+    <form [formGroup]="changeTaskForm" (ngSubmit)="onSubmit()" class="createTask__form d-grid">
+      <div class="taskPage__input-wrapper d-grid">
+        <div class="d-grid">
+          <label>Название Задачи</label>
+          <input class="taskPage__input" formControlName="name" type='text'>
+        </div>
+
+        <div class="taskPage__chips">
+          <mat-chip-grid #chipGrid aria-label="Enter fruits">
+            @for (person of performers; track person) {
+            <mat-chip-row (removed)="remove(person)" >
+            {{ person }}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+            }
+            <input class="taskPage__input" placeholder="Add perfomer"
+                   [matChipInputFor]="chipGrid"
+                   (matChipInputTokenEnd)="add($event)"/>
+          </mat-chip-grid>
+        </div>
+        <div class="taskPage__datePicker d-flex">
+          <mat-date-range-input [rangePicker]="picker">
+            <input class="taskPage__input" matStartDate formControlName="start" placeholder="Start date">
+            <input class="taskPage__input" matEndDate formControlName="end" placeholder="End date">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </div>
+        <textarea class="taskPage__input" matInput formControlName="description" placeholder="Описание задачи"></textarea>
+      </div>
+    </form>
+  </div>
+</div>

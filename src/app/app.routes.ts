@@ -1,14 +1,20 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from "./home/home.component";
+import { MtHomeComponent } from "./home/home.component";
 import { MtHeaderComponent } from "./header/header.component";
-import { MtHomeResolver } from "./home/shared/home.resolver";
+import { MtTaskPageResolver } from "./task-page/shared/task-page.resolver";
+import { MtTaskPageComponent } from "./task-page/task-page.component";
 
-export const routes: Routes = [{
+export const routes: Routes = [
+//   {
+//   path: "",
+//   component: MtHeaderComponent,
+//   outlet: 'header'
+// },
+  {
   path: "",
-  component: MtHeaderComponent,
-  outlet: 'header'
+  component: MtHomeComponent,
 }, {
-  path: "",
-  component: HomeComponent,
-  resolve: { taskList: MtHomeResolver }
+  path: "task/:id",
+  component: MtTaskPageComponent,
+  resolve: { task: MtTaskPageResolver }
 }];

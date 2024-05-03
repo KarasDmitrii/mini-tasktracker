@@ -1,24 +1,42 @@
+<div class="grid align-items-center h-100">
+  <button
+    mat-flat-button
+    color="primary"
+    class="align-items-center d-flex g-col-10 g-start-2 g-col-md-4 g-col-lg-2"
+    (click)="openDialog()"
+  >
+    <mat-icon>
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0002 2C6.4774 2 2.00024 6.47715 2.00024 12C2.00024 17.5228 6.4774 22 12.0002 22C17.5231 22 22.0002 17.5228 22.0002 12C22.0002 6.47715 17.5231 2 12.0002 2ZM0.000244141 12C0.000244141 5.37258 5.37283 0 12.0002 0C18.6277 0 24.0002 5.37258 24.0002 12C24.0002 18.6274 18.6277 24 12.0002 24C5.37283 24 0.000244141 18.6274 0.000244141 12Z" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0002 18V6H13.0002V18H11.0002Z" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00024 11H18.0002V13H6.00024V11Z" fill="white"/>
+      </svg>
+    </mat-icon>
+    Новая задача
+  </button>
+</div>
 <div class="grid container">
-  <table mat-table [dataSource]="taskList" class="mat-elevation-z8">
+  <div class="home__table-wrapper g-col-12 g-col-md-10 g-start-md-2">
+    <div class="w-100 h-100 d-grid">
+<!--      <tr class="home__row" [routerLink]="">-->
+<!--        <td>-->
+<!--          <button (click)="openDialog()">Создать задачу</button>-->
+<!--        </td>-->
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let task"> {{task.data.name}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="priority">
-      <th mat-header-cell *matHeaderCellDef> priority </th>
-      <td mat-cell *matCellDef="let task"> {{task.data.priority}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="deadline">
-      <th mat-header-cell *matHeaderCellDef> deadline </th>
-      <td mat-cell *matCellDef="let task"> {{task.data.endDate}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
+<!--      </tr>-->
+      @for (item of taskList; track item) {
+      <div class="home__row d-grid align-items-center" [routerLink]="['/task/', item.id]">
+        <span>{{item.data.name}}</span>
+        <span>{{item.data.priority}}</span>
+        <span>{{item.data.endDate | date: 'MMM d, y'}}</span>
+        <div class="text-end">
+          <button (click)="deleteTask(item.id)" class="home__button d-inline">
+            Удалить Задачу
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
 </div>
 

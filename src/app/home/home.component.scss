@@ -1,5 +1,36 @@
 .home {
+
+  &__table-wrapper {
+    border: 1px solid #ffffff6b;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  &__row {
+    height: 50px;
+    border-top: 1px solid;
+    transition-duration: 300ms;
+    transition-property: background-color;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    padding-right: 8px;
+    padding-left: 8px;
+
+    &:hover {
+      background-color: #5E646A;
+    }
+  }
+
   &__button {
-    background-color: dodgerblue;
+    color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    opacity: 0.3;
+    transition-property: opacity;
+    transition-duration: 300ms;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }

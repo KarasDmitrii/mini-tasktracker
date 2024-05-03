@@ -13,8 +13,8 @@ import {
   MatDateRangePicker
 } from "@angular/material/datepicker";
 import { provideNativeDateAdapter } from "@angular/material/core";
-import {ITask} from "../../fake-api/task.model";
-import { MtFakeApiService } from "../../fake-api/fake-api.service";
+import { ITask } from "../../fake-api/task.model";
+import { MtTaskService } from "../../services/task.service";
 
 @Component({
   selector: 'app-create-task',
@@ -39,7 +39,7 @@ import { MtFakeApiService } from "../../fake-api/fake-api.service";
     MatSuffix,
     MatDateRangePicker
   ],
-  providers: [provideNativeDateAdapter(), MtFakeApiService],
+  providers: [provideNativeDateAdapter()],
   templateUrl: './create-task.component.html',
   styleUrl: './create-task.component.scss'
 })
@@ -49,7 +49,7 @@ export class CreateTaskComponent {
 
   constructor(
     public dialogRef: DialogRef<string>,
-    public fakeApiService: MtFakeApiService,
+    public taskService: MtTaskService,
     @Inject(DIALOG_DATA) public data: ITask,
     ) { }
 
@@ -61,7 +61,7 @@ export class CreateTaskComponent {
   });
 
   onSubmit(): void {
-    this.fakeApiService.postTask({
+    this.taskService.postTask({
       name: this.newTaskForm.value.name ?? '',
       description: this.newTaskForm.value.description ?? '',
       performers: this.performers,

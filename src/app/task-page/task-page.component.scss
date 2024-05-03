@@ -1,0 +1,51 @@
+.taskPage {
+
+  &__container {
+    grid-template-rows: auto 1fr auto;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  &__header {
+    color: #a2a0a2;
+    fill: #a2a0a2;
+    height: 30px;
+  }
+
+  &__input-wrapper {
+    grid-template-rows: 50px 50px 50px 1fr;
+  }
+
+  &__datePicker {
+  }
+
+  &__form {
+    height: calc(100% - 30px);
+    grid-template-rows: 1fr 36px;
+    display: grid;
+
+  }
+
+  &__closeIcon {
+    height: 16px;
+    width: 16px;
+  }
+
+  &__input {
+    background-color: unset;
+    color: white;
+    border: unset;
+  }
+
+  &__chips {
+  }
+
+  &__chipIcon {
+    width: 10px;
+    height: 10px;
+  }
+
+  &__button {
+    border-radius: 40px;
+  }
+}
